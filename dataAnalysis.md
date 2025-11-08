@@ -25,18 +25,20 @@ It would also be important for us to explore other levels of education, outside 
 
 Our Functions
 
-INSERT IMAGE
+![Function #1](functions-1.png)
+![Function #2](functions-2.png)
+![Function #3](functions-3.png)
 
 <br>
 
-Our Pivot Tables
+Our pivot table
 
-INSERT IMAGE
+![Pivot Table](pivot-table.png)
 
 <br>
 
 Our exploratory chart
 
-INSERT IMAGE
+![Pivot Chart](pivot-chart.png)
 
 
