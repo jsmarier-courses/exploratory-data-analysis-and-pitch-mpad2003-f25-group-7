@@ -1,7 +1,7 @@
-## Template for the Exploratory Data Analysis (EDA) & Pitch
+## Exploratory Data Analysis: How Much Does Education Really Impact Income?
 
-Here are the files for the term project of courses JOU4100 Digital Journalism II and JOU4500 Journalisme numérique II at the University of Ottawa, and MPAD2003 Introductory Data Storytelling offered at Carleton University.
+Using a dataset gathered by Statistics Canada and provided by the City of Ottawa, we used pivot tables and exploratory charts to identify a potential relationship between an Ottawa ward’s average level of education and its average level of income.
 
-## Modèle pour le Analyse exploratoire de données (AED) et proposition
+### Key Takeaways and Observations
 
-Vous trouverez ici les fichiers pour le projet de session des cours JOU4100 Digital Journalism II et JOU4500 Journalisme numérique II à l'Université d'Ottawa, et du cours MPAD2003 Introductory Data Storytelling offert à l'Université Carleton.
+We found that some wards had a high rate of post-secondary education, such as ward 1 (Orleans East-Cumberland) with 19,240 people holding a bachelor’s degree versus 2,550 people with no post-secondary education at all. It’s also worth noting that this ward had the highest average income in 2020. We believe there is a story behind this significant correlation.

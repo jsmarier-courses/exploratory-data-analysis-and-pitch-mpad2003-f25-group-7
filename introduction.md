@@ -1,6 +1,0 @@
-For our exploratory data analysis, we will be analyzing the City of Ottawa’s 2021 census data in order to find the correlation between income versus education within the different wards across the city. The 2021 census dataset, collected by Canadians through electronic questionnaires, contains information about income, housing, language, religion, ethnicity, employment, education and more, and is incredibly important for government planning, such as creating policies. Additionally, for Ottawa specifically, the census demonstrates these different numbers across 24 different wards, for example Barrhaven West, Rideau-Rockcliffe or Kanata South. For our assignment, we will be explaining how we got the data, what the data comprises/understand the data, and finally pitch a potential story with our findings on income and education.
-
-Link to original dataset: https://docs.google.com/spreadsheets/d/174ld9pHjfvV7czzBHR_3bJB5Fb4BH9ZPx_SbxSEgNPw/edit?usp=sharing 
-Link to CSV version on my GitHub portal: placeholder
-
-test edit
