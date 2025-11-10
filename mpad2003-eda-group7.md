@@ -17,11 +17,14 @@ The 2021 long form census dataset, collected by Canadians through electronic que
 
 ## 2. Getting Data
 
-The dataset we are working with is called “2021 Long Form Census - Ward Data”. The census data is publicly available; however, to access this specific dataset, we downloaded a CSV file using the link provided. You can access our Google Sheets file [here.](https://docs.google.com/spreadsheets/d/174ld9pHjfvV7czzBHR_3bJB5Fb4BH9ZPx_SbxSEgNPw/edit?usp=sharing) Once the data is downloaded, we imported its contents to Google Sheets by clicking `File > Import > Upload` and selecting the downloaded CSV file.<br>
+The dataset we are working with is called “2021 Long Form Census - Ward Data”. The census data is publicly available; however, to access this specific dataset, we downloaded a CSV file using the link provided. You can access our Google Sheets file [here.](https://docs.google.com/spreadsheets/d/174ld9pHjfvV7czzBHR_3bJB5Fb4BH9ZPx_SbxSEgNPw/edit?usp=sharing) Once the data is downloaded, we imported its contents to Google Sheets by clicking `File > Import > Upload` and selecting the downloaded CSV file.
+<br>
 ![The "Import file" prompt on Google Sheets.](import-screen-capture.png)
-*Figure 1: The "Import file" prompt on Google Sheets.*<br>
+*Figure 1: The "Import file" prompt on Google Sheets.*
+<br>
 ![The Google Sheets created using the raw data](unclean-google-sheets.png)
-*Figure 2: The dataset immediately after being imported to Google Sheets.*<br>
+*Figure 2: The dataset immediately after being imported to Google Sheets.*
+<br>
 Our initial observations pertained to the cleanliness of the data. It was difficult to understand as the meaning of the variables (averages, counts, medians) changed without a clear indication. These transitions were hard to distinguish from one another as the titles cut off due to their length.
 The data contains 2603 rows, and columns from A-Z which represent the characteristics examined on the census, the city of Ottawa, and the 24 wards across Ottawa.
 
@@ -45,14 +48,18 @@ Before beginning our data analysis, we must assess the reliability of the data b
 
 To confirm the data’s validity, we first made sure the data was formatted correctly and valid. For instance, if the data characteristic has to do with a percentage, it will be marked with (%) or a ($) when dealing with Canadian currency. Using this information, we carefully went through the data to make sure it follows the correct formats and nothing looks out of the ordinary.
 
-For example, we made sure all income composition breakdowns represent valid percentages since all the numbers should between 0-100.<br>
+For example, we made sure all income composition breakdowns represent valid percentages since all the numbers should between 0-100.
+<br>
 ![An example of valid percentages between 0 and 100](valid-percents.png)
-*Figure 3: An example of valid percentages between 0 and 100.*<br>
+*Figure 3: An example of valid percentages between 0 and 100.*
+<br>
 Additionally, we made sure the percentages made mathematical sense and there were no random data like text in the cells. We also checked for possible data/empty boxes and outliers by making sure there was no super high, low, or unrealistic data. We found that numbers such as population counts may be off by 5-10 but that is just because the census rounds numbers to the closest 5. Therefore We would still consider this as valid data.
 
-For example, the number of people with or without a high school diploma or equivalent always ends with either 0 or 5. <br>
+For example, the number of people with or without a high school diploma or equivalent always ends with either 0 or 5.
+<br>
 ![A screenshot displaying numeric data rounded to the nearest multiple of 5.](rounded-numbers.png)
-*Figure 4: A screenshot of our dataset illustrating how numeric data is round to the nearest multiple of 5.*<br>
+*Figure 4: A screenshot of our dataset illustrating how numeric data is round to the nearest multiple of 5.*
+<br>
 In conclusion, we found that the 2021 census dataset has no outliers, missing data or invalid data, therefore is valid and reliable enough to continue our analysis.
 
 ### 3.2. Cleaning Data
@@ -63,14 +70,19 @@ We started by freezing column A and row 1. Row 1 needed to be frozen in order to
 
 Then we used the find function to find any characteristic that contained “25% sample data”. When we looked at the dataset initially, we found that the characteristics created their own mini-categories, usually headed by a 25% sample data row. We added a row above each of these entries to make the difference between mini-categories clearer and bolded them the way we would a typical header.
 
-Then we began reformatting the data in each row. Using the find function we looked for characteristics containing a dollar sign ($), selected all applicable rows minus column A and formatted them as currency. Because the data was all whole values, we removed all decimal places. We then did the same for numbers and percentages. The percentages were tricky because they were originally formatted as percentages without the percent symbol (%) so using Google Sheets’ built-in formatting resulted in skewed values due to the fact that the formatting actually acts as a mathematical conversion function. Instead, we played with the custom number format creator and found a custom number format that we used instead (see figures 5, 6, and 7).<br>
+Then we began reformatting the data in each row. Using the find function we looked for characteristics containing a dollar sign ($), selected all applicable rows minus column A and formatted them as currency. Because the data was all whole values, we removed all decimal places. We then did the same for numbers and percentages. The percentages were tricky because they were originally formatted as percentages without the percent symbol (%) so using Google Sheets’ built-in formatting resulted in skewed values due to the fact that the formatting actually acts as a mathematical conversion function. Instead, we played with the custom number format creator and found a custom number format that we used instead (see figures 5, 6, and 7).
+<br>
 ![A screenshot of percentage values after applying Google Sheets' formatting](default-format-percent.png)
-*Figure 5: A screenshot of percentage values after applying Google Sheets' built-in formatting.*<br>
+*Figure 5: A screenshot of percentage values after applying Google Sheets' built-in formatting.*
+<br>
 ![A screenshot of percentage values after applying the custom format](custom-format-percent.png)
-*Figure 6: A screenshot of percentage values after applying a custom format.*<br>
+*Figure 6: A screenshot of percentage values after applying a custom format.*
+<br>
 ![A screenshot of the custom format prompt](custom-number-dialogue.png)
-*Figure 7: A screenshot of the custom format prompt in Google Sheets.*<br>
-Finally, the custom format we used resulted in any 0% value to be converted to x% so we used find and replace to replace all “x%” with “0%”. We finished by trimming whitespace and using Sheets’ cleanup tool to remove extra spaces. <br>
+*Figure 7: A screenshot of the custom format prompt in Google Sheets.*
+<br>
+Finally, the custom format we used resulted in any 0% value to be converted to x% so we used find and replace to replace all “x%” with “0%”. We finished by trimming whitespace and using Sheets’ cleanup tool to remove extra spaces. 
+<br>
 ![A screenshot of the clean dataset](clean-data.png)
 *Figure 8: A screenshot of our dataset after cleaning.*
 
@@ -84,15 +96,18 @@ We wanted to focus on the number of people in Ottawa with each level of educatio
 
 #### Making the Pivot Table
 
-First we set the rows of the pivot table to be our wards (yellow). Since we are comparing several levels of study to the average income, we ordered the income (purple)  before the levels of education (green), and ordered the wards from highest to lowest based on their average total income.<br>
+First we set the rows of the pivot table to be our wards (yellow). Since we are comparing several levels of study to the average income, we ordered the income (purple)  before the levels of education (green), and ordered the wards from highest to lowest based on their average total income.
+<br>
 ![A pivot table illustrating average total income and the sum of people with each level of education across the wards in Ottawa.](pivot-table.png)
-*Figure 9: This pivot table shows the average total income and the number of people with each level of education for each ward in Ottawa. The last row displays the average for the whole city.*<br>
+*Figure 9: This pivot table shows the average total income and the number of people with each level of education for each ward in Ottawa. The last row displays the average for the whole city.*
+<br>
 The bottom row calculates the average total income across wards and the average recipients in each level of education.
 
 #### Exploring the Data
 
 ![An exploratory bar chart comparing the number of people with each education level per ward with the wards organized from highest to lowest average income.](pivot-chart.png)
-*Figure 10: This exploratory bar chart compares the number of people with each level of education in each ward, with the wards organized from highest average income to lowest average income.*<br>
+*Figure 10: This exploratory bar chart compares the number of people with each level of education in each ward, with the wards organized from highest average income to lowest average income.*
+<br>
 We chose these variables because our most promising observations regarded the connection between income and education. We wanted to see if there was a significant correlation between a ward’s level of education and their average income (i.e. does a more educated ward make more money?).
 
 In Ward 1 (Orleans East-Cumberland) — the ward with the highest average total income in 2020 — the ratio of bachelor's degree to no post-secondary education is substantial: 19,240 people to 2,550 people.
